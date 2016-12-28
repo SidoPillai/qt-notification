@@ -1,5 +1,5 @@
 # qt-notification-cross-platform
-This is an implementation of Local Notifications for mac, iOS and Android using Qt. 
+Qt-Qml Local Notifications for mac, iOS and Android. 
 
 Version: Qt 5.8 (beta) <br>
 Platform: Mac, Android and iOS
