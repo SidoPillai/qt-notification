@@ -13,12 +13,8 @@ import android.app.NotificationManager;
 // java
 import java.lang.String;
 
-/*
-    Показывает простое уведомление в Android
-*/
 class QtAndroidNotifications {
 
-    /*	Показывает уведомление */
     public static void show(String title, String caption, int id) {
         System.out.println("show");
 
@@ -27,7 +23,7 @@ class QtAndroidNotifications {
         NotificationManager notificationManager = getManager();
         Notification.Builder builder =
                 new Notification.Builder(context)
-                .setSmallIcon(android.R.drawable.ic_delete) // id_delete - первая попавшаяся иконка
+                .setSmallIcon(android.R.drawable.ic_delete)
                 .setContentTitle(title)
                 .setContentText(caption)
                 .setAutoCancel(true)
@@ -47,12 +43,10 @@ class QtAndroidNotifications {
         notificationManager.notify(id, builder.build());
     }
 
-    /* Скрывает уведомление по id */
     public static void hide(int id) {
         getManager().cancel(id);
     }
 
-    /* Скрывает все уведомления */
     public static void hideAll() {
         getManager().cancelAll();
     }
@@ -62,4 +56,3 @@ class QtAndroidNotifications {
         return (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
     }
 }
-
