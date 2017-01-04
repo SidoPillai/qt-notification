@@ -7,11 +7,7 @@ Mac - OSX, Android - API 19+ and iOS - 8.0+
 
 ## Usage
 ```
-notification.show({
-                      caption: "hello",
-                      title  : "notification",
-                      id     : 0
-                  });
+notification.show({caption: "hello", title : "notification", id:0});
 ```
 
 ### Note
