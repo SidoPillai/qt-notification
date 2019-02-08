@@ -1,7 +1,7 @@
 # qt-notification-cross-platform
 Trigger Local Notifications via qml for iOS and Android. 
 
-Developed on Qt Version: Qt 5.8 (beta) <br>
+Developed on Qt Version: Qt 5.12 <br>
 Platform Supported: 
 Android - API 19+ and iOS - 8.0+
 
