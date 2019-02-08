@@ -5,12 +5,11 @@
 
 class QtAndroidNotifier : public QtAbstractNotifier
 {
-    public:
-        QtAndroidNotifier() {}
+public:
+    QtAndroidNotifier() {}
 
-        bool show(const QVariant &notificationParameters);
-        bool hide(const QVariant &notificationParameters);
-        bool hideAll();
+public:
+    bool show(const QVariant &notificationParameters);
 };
 
 #endif // QTANDROIDNotifier_H

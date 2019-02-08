@@ -5,9 +5,15 @@
 
 class QtIosNotifier : public QtAbstractNotifier
 {
-    public:
-        QtIosNotifier();
-        bool show(const QVariant &notificationParameters);
+
+public:
+    QtIosNotifier();
+
+public:
+    bool show(const QVariant &notificationParameters);
+
+private:
+    void                *m_Delegate;
 };
 
 #endif // QTIOSNotifier_H

@@ -4,8 +4,7 @@ INCLUDEPATH += $$PWD
 HEADERS += \
     $$PWD/QtNotification.h \
     $$PWD/QtAbstractNotifier.h \    
-    $$PWD/QtNotifierFactory.h \
-    $$PWD/QtMacOsNotifier.h
+    $$PWD/QtNotifierFactory.h
 
 SOURCES += \
     $$PWD/QtNotification.cpp \    
@@ -18,24 +17,27 @@ android {
 
     HEADERS += $$PWD/QtAndroidNotifier.h
     SOURCES += $$PWD/QtAndroidNotifier.cpp
-    DISTFILES += \
-        $$PWD/QtMobileNotificationAndroid/src/ru/notifications/javalib/*.java \
-        $$PWD/QtMobileNotificationAndroid/*.gradle
+
+DISTFILES += \
+    android/AndroidManifest.xml \
+    android/gradle/wrapper/gradle-wrapper.jar \
+    android/gradlew \
+    android/res/values/libs.xml \
+    android/build.gradle \
+    android/gradle/wrapper/gradle-wrapper.properties \
+    android/gradlew.bat
+
 }
 
 ios {
+    LIBS += -framework UIKit
     LIBS += -framework Foundation
+    LIBS += -framework UserNotifications
 
     #ios-components
     HEADERS += $$PWD/QtIosNotifier.h
     OBJECTIVE_SOURCES += $$PWD/QtIosNotifier.mm
 }
 
-macx {
-    LIBS += -framework Foundation
-
-    # macx-components
-    HEADERS += $$PWD/QtMacOsNotifier.h
-    OBJECTIVE_SOURCES += $$PWD/QtMacOsNotifier.mm
-}
-
+DISTFILES += \
+    $$PWD/../android/src/ru/notifications/javalib/QtAndroidNotifications.java

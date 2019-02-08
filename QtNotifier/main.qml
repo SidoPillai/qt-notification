@@ -12,9 +12,8 @@ Window {
 
     MouseArea {
         anchors.fill: parent
-        onClicked: {
-            console.log("clicked")
 
+        onClicked: {
             // every notification must have a unique id
             // hint try random integer
             notification.show({

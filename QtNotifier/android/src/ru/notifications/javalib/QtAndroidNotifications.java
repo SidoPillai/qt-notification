@@ -16,39 +16,24 @@ import java.lang.String;
 class QtAndroidNotifications {
 
     public static void show(String title, String caption, int id) {
-        System.out.println("show");
-
         Context context = QtNative.activity();
-
         NotificationManager notificationManager = getManager();
         Notification.Builder builder =
                 new Notification.Builder(context)
                 .setSmallIcon(android.R.drawable.ic_delete)
                 .setContentTitle(title)
                 .setContentText(caption)
-                .setAutoCancel(true)
-                ;
+                .setAutoCancel(true);
 
         String packageName = context.getApplicationContext().getPackageName();
         Intent resultIntent = context.getPackageManager().getLaunchIntentForPackage(packageName);
         resultIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
-        PendingIntent resultPendingIntent =
-            PendingIntent.getActivity(
-            context, 0,
-            resultIntent, PendingIntent.FLAG_UPDATE_CURRENT
-        );
+        PendingIntent resultPendingIntent = PendingIntent.getActivity(context, 0,
+            resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         builder.setContentIntent(resultPendingIntent);
         notificationManager.notify(id, builder.build());
-    }
-
-    public static void hide(int id) {
-        getManager().cancel(id);
-    }
-
-    public static void hideAll() {
-        getManager().cancelAll();
     }
 
     private static NotificationManager getManager() {

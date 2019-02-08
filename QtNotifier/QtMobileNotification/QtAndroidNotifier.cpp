@@ -3,7 +3,8 @@
 #include <QVariant>
 #include <QtAndroid>
 
-//----------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
 bool QtAndroidNotifier::show(const QVariant &notificationParameters)
 {
     QVariantMap parameters = notificationParameters.toMap();
@@ -19,27 +20,8 @@ bool QtAndroidNotifier::show(const QVariant &notificationParameters)
                                               "(Ljava/lang/String;Ljava/lang/String;I)V",
                                               jni_title.object<jstring>(),
                                               jni_caption.object<jstring>(),
-                                              (jint) id);
+                                              static_cast<jint>(id));
     return true;
 }
-//----------------------------------------------------------------------
-bool QtAndroidNotifier::hide(const QVariant &notificationParameters)
-{
-    int id = 0;
-    if (notificationParameters.type() == QVariant::Int) {
-        id = notificationParameters.toInt();
-    }
-    QAndroidJniObject::callStaticMethod<void>("ru/notifications/javalib/QtAndroidNotifications",
-                                              "show",
-                                              "(I)V",
-                                              (jint) id);
-    return true;
-}
-//----------------------------------------------------------------------
-bool QtAndroidNotifier::hideAll()
-{
-    QAndroidJniObject::callStaticMethod<void>("ru/notifications/javalib/QtAndroidNotifications",
-                                              "hideAll",
-                                              "()V");
-    return true;
-}
+
+//------------------------------------------------------------------------------

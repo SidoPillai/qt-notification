@@ -1,6 +1,7 @@
 
 #ifndef QTABSTRACTNOTIFICATOR
 #define QTABSTRACTNOTIFICATOR
+
 #include <QObject>
 
 /**
@@ -11,15 +12,13 @@
  * Each method returns a boolean indicating whether the notifications are
  * supported or not
  */
-class QtAbstractNotifier
+
+class QtAbstractNotifier : public QObject
 {
-    public:
-        virtual bool show(const QVariant &notificationParameters)
-            { return false; }
+    Q_OBJECT
 
-        virtual bool hide(const QVariant &notificationParameters) { return false; }
-
-        virtual bool hideAll() { return false; }
+public:
+    virtual bool show(const QVariant &notificationParameters) = 0;
 };
 
 
