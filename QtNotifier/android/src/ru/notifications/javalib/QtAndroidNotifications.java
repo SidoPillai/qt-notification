@@ -13,6 +13,8 @@ import android.app.NotificationManager;
 // java
 import java.lang.String;
 
+import org.qtproject.example.R;
+
 class QtAndroidNotifications {
 
     public static void show(String title, String caption, int id) {
